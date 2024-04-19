@@ -8,7 +8,7 @@ public class Main {
         Persona mayor = personas.get(0);
         for (int i = 1; i < personas.size(); i++) {
             Persona personaActual = personas.get(i);
-        a    if (personaActual.calcularEdad() > mayor.calcularEdad()) {
+            if (personaActual.calcularEdad() > mayor.calcularEdad()) {
                 mayor = personaActual;
             }
         }
