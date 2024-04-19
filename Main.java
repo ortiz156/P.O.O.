@@ -16,15 +16,29 @@ public class Main {
     }
 
     static void Menor() {
-        Persona menor = personas.get(0);
-        for (int i = 1; i < personas.size(); i++) {
+        Persona menor1 = personas.get(0);
+        Persona menor2 = personas.get(1);
+
+        if (menor2.calcularEdad() < menor1.calcularEdad()) {
+            Persona temp = menor1;
+            menor1 = menor2;
+            menor2 = temp;
+        }
+
+        for (int i = 2; i < personas.size(); i++) {
             Persona personaActual = personas.get(i);
-            if (personaActual.calcularEdad() < menor.calcularEdad()) {
-                menor = personaActual;
+
+            if (personaActual.calcularEdad() < menor1.calcularEdad()) {
+                menor2 = menor1;
+                menor1 = personaActual;
+            } else if (personaActual.calcularEdad() < menor2.calcularEdad()) {
+                menor2 = personaActual;
             }
         }
-        System.out.println(menor.nombre + " es el menor con " + menor.calcularEdad() + " años.");
+        System.out.println(menor1.nombre + " es el menor con " + menor1.calcularEdad() + " años.");
+        System.out.println(menor2.nombre + " es el segundo menor con " + menor2.calcularEdad() + " años.");
     }
+
 
     static void Promedio() {
         float promedio = 0;
@@ -60,3 +74,4 @@ public class Main {
         Promedio();
     }
 }
+
